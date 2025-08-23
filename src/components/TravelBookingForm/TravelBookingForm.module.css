@@ -94,14 +94,14 @@
 :global(.react-datepicker) {
   border: 1px solid var(--gray-light);
   border-radius: 12px;
-  background: var(--white);
+  background: var(--color-white);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   font-size: 14px;
 }
 
 :global(.react-datepicker__header) {
-  background: var(--white);
+  background: var(--color-white);
   border-bottom: 1px solid var(--gray-light);
 }
 
@@ -111,12 +111,12 @@
 :global(.react-datepicker__day--range-start),
 :global(.react-datepicker__day--range-end) {
   background: var(--button);
-  color: var(--white);
+  color: var(--color-white);
 }
 
 :global(.react-datepicker__day:hover) {
   background: var(--button-hover);
-  color: var(--white);
+  color: var(--color-white);
 }
 
 .field::-webkit-calendar-picker-indicator {

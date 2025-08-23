@@ -1,0 +1,10 @@
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 100px;
+  font-weight: 500;
+  background-color: var(--badges);
+}

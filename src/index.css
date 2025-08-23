@@ -1,8 +1,7 @@
 :root {
-  --font-family: "Inter", sans-serif;
   --main: #101828;
   --text: #475467;
-  --white: #fff;
+  --color-white: #fff;
   --inputs: #f7f7f7;
   --badges: #f2f4f7;
   --gray: #6c717b;
@@ -10,4 +9,48 @@
   --button: #e44848;
   --button-hover: #d84343;
   --rating: #ffc531;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../src/fonts/Inter-VariableFont_opsz\,wght.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  background-color: var(--white);
+  color: var(--main);
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

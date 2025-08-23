@@ -1,0 +1,110 @@
+.item {
+  display: flex;
+  gap: 24px;
+}
+.image {
+  width: 292px;
+  height: 320px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.infoBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.generalBlock {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.price {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.general {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 350px;
+}
+
+.reviewLocationBlock {
+  display: flex;
+  gap: 16px;
+}
+.reviewLocationFlex {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.iconStar {
+  fill: var(--color-rating);
+}
+
+.description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 525px;
+  color: var(--color-text);
+}
+
+.propertiesBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 400px;
+}
+
+.button {
+  padding: 16px;
+  width: 166px;
+  color: var(--color-white);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  background-color: var(--color-button);
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.btnFavorite {
+  border: none;
+  background: unset;
+  cursor: pointer;
+}
+.noImage {
+  width: 100%;
+  height: 200px; /* або потрібна висота */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-light);
+  color: var(--text);
+  font-size: 14px;
+  border-radius: 8px;
+}

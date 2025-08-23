@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection/HeroSection.jsx";
 import TravelBookingForm from "../components/TravelBookingForm/TravelBookingForm.jsx";
 import CamperFeatures from "../components/CamperFeatures/CamperFeatures.jsx";
 import { CamperFeaturesMin } from "../components/CamperFeatures/CamperFeaturesList.jsx";
+import CamperItem from "../components/CamperItem/CamperItem.jsx";
 export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
@@ -29,6 +30,7 @@ export default function HomePage() {
       <TravelBookingForm />
       <h2 style={{ margin: "32px 0" }}>Test Camper Features:</h2>
       <CamperFeatures camper={camperData} list={CamperFeaturesMin} />
+      <  CamperItem />
     </>
   );
 }

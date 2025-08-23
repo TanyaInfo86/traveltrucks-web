@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader.jsx";
 import HeroSection from "../components/HeroSection/HeroSection.jsx";
+import TravelBookingForm from "../components/TravelBookingForm/TravelBookingForm.jsx";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true);
@@ -17,6 +18,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <TravelBookingForm />
     </>
   );
 }

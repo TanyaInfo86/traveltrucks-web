@@ -1,0 +1,8 @@
+.rewiewsWrapper {
+  width: 631px;
+}
+.rewiewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}

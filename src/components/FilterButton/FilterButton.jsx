@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import style from './ButtonFilter.module.css';
+import style from './FilterButton.module.css';
 
 const  FilterButton = ({
   selected = false,

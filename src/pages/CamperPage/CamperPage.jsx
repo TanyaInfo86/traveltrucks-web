@@ -13,7 +13,7 @@ import Container from "../../components/Container/Container.jsx";
 import FilterSection from "../../components/FilterSection/FilterSection.jsx";
 import CampersList from "../../components/CampersList/CampersList.jsx";
 
-import style from "./CampersPage.module.css";
+import style from "./CamperPage.module.css";
 import Loader from "../../components/Loader/Loader.jsx";
 
 const CampersPage = () => {

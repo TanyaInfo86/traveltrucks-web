@@ -3,7 +3,7 @@ import { fetchCamperById, fetchCampers } from "./operations.js";
 
 const initialState = {
   items: [],
-  currentCamper: {},
+  currentCamper: null, // було {}, зручніше як null
   total: 0,
   page: 1,
   isLoading: false,
@@ -17,6 +17,7 @@ const campersSlice = createSlice({
   reducers: {
     resetCampers: (state) => {
       state.items = [];
+      state.currentCamper = null;
       state.total = 0;
       state.page = 1;
       state.isLoading = false;
@@ -30,20 +31,15 @@ const campersSlice = createSlice({
       .addCase(fetchCampers.pending, (state, action) => {
         const firstPage = (action.meta?.arg?.page ?? 1) === 1;
         state.error = null;
-        if (firstPage) {
-          state.isLoading = true;
-        } else {
-          state.isLoadingMore = true;
-        }
+        if (firstPage) state.isLoading = true;
+        else state.isLoadingMore = true;
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         const firstPage = (action.meta?.arg?.page ?? 1) === 1;
 
-        if (firstPage) {
-          state.items = action.payload.items;
-        } else {
-          state.items = [...state.items, ...action.payload.items];
-        }
+        state.items = firstPage
+          ? (action.payload.items ?? [])
+          : [...state.items, ...(action.payload.items ?? [])];
 
         state.total = action.payload.total ?? 0;
         state.page = action.meta?.arg?.page ?? 1;
@@ -55,7 +51,8 @@ const campersSlice = createSlice({
       .addCase(fetchCampers.rejected, (state, action) => {
         state.isLoading = false;
         state.isLoadingMore = false;
-        state.error = action.payload?.message ?? action.payload ?? "Request failed";
+        state.error =
+          action.payload?.message ?? action.payload ?? "Request failed";
       })
 
       // ===== details =====
@@ -64,13 +61,14 @@ const campersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCamperById.fulfilled, (state, action) => {
-        state.currentCamper = action.payload;
+        state.currentCamper = action.payload ?? null;
         state.isLoading = false;
         state.error = null;
       })
       .addCase(fetchCamperById.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload?.message ?? action.payload ?? "Request failed";
+        state.error =
+          action.payload?.message ?? action.payload ?? "Request failed";
       });
   },
 });

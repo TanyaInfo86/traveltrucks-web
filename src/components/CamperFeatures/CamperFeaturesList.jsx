@@ -13,7 +13,7 @@ import IconVan from "../../assets/icons/bi_grid-1x2.svg?react";
 import IconFully from "../../assets/icons/bi_grid.svg?react";
 import IconAlcove from "../../assets/icons/bi_grid-3x3-gap.svg?react";
 
-// Мінімальний набір features
+// Мінімальний набір features (для бейджів у картці)
 export const CamperFeaturesMin = [
   { key: "transmission", label: "Automatic", value: "automatic", icon: <IconAutomatic width="20px" height="20px" /> },
   { key: "engine",       label: "Petrol",     value: "petrol",    icon: <IconPetrol    width="20px" height="20px" /> },
@@ -23,7 +23,7 @@ export const CamperFeaturesMin = [
   { key: "bathroom",     label: "Bathroom",   value: "true",      icon: <IconBathroom  width="20px" height="20px" /> },
 ];
 
-// Максимальний набір features
+// Максимальний набір features (для детальної сторінки)
 export const CamperFeaturesMax = [
   { key: "transmission",  label: "Automatic",    value: "automatic", icon: <IconAutomatic width="20px" height="20px" /> },
   { key: "engine",        label: "Petrol",       value: "petrol",    icon: <IconPetrol    width="20px" height="20px" /> },
@@ -38,16 +38,16 @@ export const CamperFeaturesMax = [
   { key: "water",         label: "Water",        value: "true",      icon: <IconWater     width="20px" height="20px" /> },
 ];
 
-// Фільтри для пошуку по features
+// Фільтри для пошуку (кнопки-чіпи)
 export const camperFeatureFilters = [
-  { key: "AC",           label: "AC",          icon: <IconAC /> },
-  { key: "transmission", label: "Automatic",   icon: <IconAutomatic /> },
-  { key: "kitchen",      label: "Kitchen",     icon: <IconKitchen /> },
-  { key: "TV",           label: "TV",          icon: <IconTV /> },
-  { key: "bathroom",     label: "Bathroom",    icon: <IconBathroom /> },
+  { key: "AC",           label: "AC",        icon: <IconAC /> },
+  { key: "transmission", label: "Automatic", icon: <IconAutomatic /> },
+  { key: "kitchen",      label: "Kitchen",   icon: <IconKitchen /> },
+  { key: "TV",           label: "TV",        icon: <IconTV /> },
+  { key: "bathroom",     label: "Bathroom",  icon: <IconBathroom /> },
 ];
 
-// Типи транспортних засобів
+// Типи транспортних засобів (для фільтра "Vehicle type")
 export const camperVehicleTypes = [
   { key: "panelTruck",      label: "Van",              icon: <IconVan /> },
   { key: "fullyIntegrated", label: "Fully Integrated", icon: <IconFully /> },

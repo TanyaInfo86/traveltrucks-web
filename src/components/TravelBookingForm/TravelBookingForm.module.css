@@ -1,10 +1,11 @@
 .formWrapper {
-  width: 641px;
+  width: 100%;
+  max-width: 641px;
   height: 588px;
   padding: 44px;
   border-radius: 10px;
   border: 1px solid var(--gray-light);
-  background: var(--color-white);
+  background: var(--white);
   box-sizing: border-box;
 }
 
@@ -125,7 +126,7 @@
 
 @media (max-width: 768px) {
   .formWrapper {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     padding: 24px;
   }

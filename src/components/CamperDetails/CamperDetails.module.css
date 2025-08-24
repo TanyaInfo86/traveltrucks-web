@@ -15,6 +15,7 @@
   line-height: 1.33;
   margin-bottom: 8px;
 }
+
 .generalBlock {
   display: flex;
   flex-direction: column;
@@ -81,15 +82,23 @@
   height: 5px;
   background-color: var(--button);
 }
+
 .tabContent {
   display: grid;
   grid-template-columns: minmax(0, 631px) 641px;
   gap: 40px;
   align-items: start;
 }
+
 .leftCol {
   min-width: 0;
 }
 .rightCol {
   min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .tabContent {
+    grid-template-columns: 1fr;
+  }
 }

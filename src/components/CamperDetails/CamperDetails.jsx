@@ -11,16 +11,14 @@ import ReviewsContent from "../ReviewsSection/ReviewsSection.jsx";
 import BookingForm from "../TravelBookingForm/TravelBookingForm.jsx";
 import Loader from "../Loader/Loader.jsx";
 
-const CamperDetailComponent = ({ camper }) => {
+export default function CamperDetails({ camper }) {
   const [openTab, setOpenTab] = useState("Features");
 
-  if (!camper || !camper.reviews || !camper.gallery) {
-    return <Loader />;
-  }
+  if (!camper || !camper.reviews || !camper.gallery) return <Loader />;
 
   const tabs = [
     { name: "Features", content: <FeaturesContent camper={camper} /> },
-    { name: "Reviews", content: <ReviewsContent camper={camper} /> },
+    { name: "Reviews",  content: <ReviewsContent  camper={camper} /> },
   ];
 
   const averageRating = camper.reviews.length
@@ -68,39 +66,32 @@ const CamperDetailComponent = ({ camper }) => {
             <p>{camper.description}</p>
           </div>
 
-          <div className={style.tabBlock}>
-            <div className={style.tabButtons}>
-              {tabs.map((tab) => (
-                <button
-                  key={tab.name}
-                  onClick={() => setOpenTab(tab.name)}
-                  className={clsx(style.tabButton, {
-                    [style.active]: openTab === tab.name,
-                  })}
-                >
-                  {tab.name}
-                </button>
-              ))}
-            </div>
-
-            <div className={style.tabContentWrapper}>
-              {tabs.map(
-                (tab) =>
-                  openTab === tab.name && (
-                    <div key={tab.name} className={style.tabContent}>
-                      <div className={style.leftCol}>{tab.content}</div>
-                      <aside className={style.rightCol}>
-                        <BookingForm />
-                      </aside>
-                    </div>
-                  )
-              )}
-            </div>
+          <div className={style.tabButtons}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.name}
+                onClick={() => setOpenTab(tab.name)}
+                className={clsx(style.tabButton, {
+                  [style.active]: openTab === tab.name,
+                })}
+              >
+                {tab.name}
+              </button>
+            ))}
           </div>
+
+          {tabs.map((tab) =>
+            openTab === tab.name ? (
+              <div key={tab.name} className={style.tabContent}>
+                <div className={style.leftCol}>{tab.content}</div>
+                <aside className={style.rightCol}>
+                  <BookingForm />
+                </aside>
+              </div>
+            ) : null
+          )}
         </div>
       </Container>
     </section>
   );
-};
-
-export default CamperDetailComponent;
+}

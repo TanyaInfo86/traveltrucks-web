@@ -13,6 +13,7 @@
   color: var(--text);
 }
 
+/* tablet & mobile */
 @media (max-width: 768px) {
   .reviewsWrapper {
     max-width: 100%;

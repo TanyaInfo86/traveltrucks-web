@@ -1,0 +1,38 @@
+.featuresWrapper {
+  background-color: var(--inputs);
+  border-radius: 10px;
+  padding: 44px;
+  width: 631px;
+  height: 588px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.properties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+ 
+}
+
+.vehicleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.line {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.detailList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  line-height: 1.5;
+}

@@ -1,15 +1,17 @@
 import Container from "../Container/Container.jsx";
 import style from "./CamperDetails.module.css";
+
 import IconStar from "../../assets/icons/star.svg?react";
 import IconLocation from "../../assets/icons/map.svg?react";
 import { useState } from "react";
 import clsx from "clsx";
-import ReviewsSection from "../ReviewsSection/ReviewsSection.jsx";
-import TravelBookingForm from "../TravelBookingForm/TravelBookingForm.jsx";
-import Loader from "../Loader/Loader.jsx";
-import CamperFeaturesSection from "../CamperFeaturesSection/CamperFeaturesSection.jsx";
 
-const CamperDetails = ({ camper }) => {
+import FeaturesContent from "../CamperFeaturesSection/CamperFeaturesSection.jsx";
+import ReviewsContent from "../ReviewsSection/ReviewsSection.jsx";
+import BookingForm from "../TravelBookingForm/TravelBookingForm.jsx";
+import Loader from "../Loader/Loader.jsx";
+
+const CamperDetailComponent = ({ camper }) => {
   const [openTab, setOpenTab] = useState("Features");
 
   if (!camper || !camper.reviews || !camper.gallery) {
@@ -17,93 +19,88 @@ const CamperDetails = ({ camper }) => {
   }
 
   const tabs = [
-    { name: "Features", content: <CamperFeaturesSection camper={camper} /> },
-    { name: "Reviews", content: <ReviewsSection camper={camper} /> },
+    { name: "Features", content: <FeaturesContent camper={camper} /> },
+    { name: "Reviews", content: <ReviewsContent camper={camper} /> },
   ];
 
-  const averageRating =
-    camper.reviews.length > 0
-      ? camper.reviews.reduce(
-          (sum, review) => sum + review.reviewer_rating,
-          0
-        ) / camper.reviews.length
-      : 0;
-
-  const images = camper.gallery;
+  const averageRating = camper.reviews.length
+    ? (
+        camper.reviews.reduce((s, r) => s + Number(r?.reviewer_rating || 0), 0) /
+        camper.reviews.length
+      ).toFixed(1)
+    : "0.0";
 
   return (
     <section className={style.section}>
       <Container>
-        {!camper || !camper.reviews ? (
-          <Loader />
-        ) : (
-          <div className={style.infoBlock}>
-            <div className={style.generalBlock}>
-              <h2 className={style.general}>{camper.name}</h2>
+        <div className={style.infoBlock}>
+          <div className={style.generalBlock}>
+            <h2 className={style.general}>{camper.name}</h2>
 
-              <div className={style.reviewLocationBlock}>
-                <div className={style.reviewLocationFlex}>
-                  <IconStar className={style.iconStar} />
-                  <p>
-                    {averageRating}({camper.reviews.length} Reviews)
-                  </p>
-                </div>
-                <div className={style.reviewLocationFlex}>
-                  <IconLocation className={style.iconStar} />
-                  <p>{camper.location}</p>
-                </div>
+            <div className={style.reviewLocationBlock}>
+              <div className={style.reviewLocationFlex}>
+                <IconStar className={style.iconStar} />
+                <p>
+                  {averageRating} ({camper.reviews.length} Reviews)
+                </p>
               </div>
-
-              <p className={style.general}>€{camper.price}.00</p>
+              <div className={style.reviewLocationFlex}>
+                <IconLocation className={style.iconStar} />
+                <p>{camper.location}</p>
+              </div>
             </div>
 
-            <div className={style.imagesBlock}>
-              {images.map((image) => (
-                <img
-                  key={image.thumb}
-                  src={image.thumb}
-                  alt={camper.name}
-                  className={style.image}
-                />
+            <p className={style.general}>€{Number(camper.price).toFixed(2)}</p>
+          </div>
+
+          <div className={style.imagesBlock}>
+            {camper.gallery.map((image) => (
+              <img
+                key={image.thumb}
+                src={image.thumb}
+                alt={camper.name}
+                className={style.image}
+              />
+            ))}
+          </div>
+
+          <div className={style.descriptionBlock}>
+            <p>{camper.description}</p>
+          </div>
+
+          <div className={style.tabBlock}>
+            <div className={style.tabButtons}>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.name}
+                  onClick={() => setOpenTab(tab.name)}
+                  className={clsx(style.tabButton, {
+                    [style.active]: openTab === tab.name,
+                  })}
+                >
+                  {tab.name}
+                </button>
               ))}
             </div>
 
-            <div className={style.descriptionBlock}>
-              <p>{camper.description}</p>
-            </div>
-
-            <div className={style.tabBlock}>
-              <div className={style.tabButtons}>
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.name}
-                    onClick={() => setOpenTab(tab.name)}
-                    className={clsx(style.tabButton, {
-                      [style.active]: openTab === tab.name,
-                    })}
-                  >
-                    {tab.name}
-                  </button>
-                ))}
-              </div>
-
-              <div className={style.tabContentWrapper}>
-                {tabs.map(
-                  (tab) =>
-                    openTab === tab.name && (
-                      <div key={tab.name} className={style.tabContent}>
-                        {tab.content}
-                        <TravelBookingForm />
-                      </div>
-                    )
-                )}
-              </div>
+            <div className={style.tabContentWrapper}>
+              {tabs.map(
+                (tab) =>
+                  openTab === tab.name && (
+                    <div key={tab.name} className={style.tabContent}>
+                      <div className={style.leftCol}>{tab.content}</div>
+                      <aside className={style.rightCol}>
+                        <BookingForm />
+                      </aside>
+                    </div>
+                  )
+              )}
             </div>
           </div>
-        )}
+        </div>
       </Container>
     </section>
   );
 };
 
-export default CamperDetails;
+export default CamperDetailComponent;

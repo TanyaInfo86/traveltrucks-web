@@ -19,7 +19,6 @@
   left: 64px;
 }
 
-/* tablet/medium */
 @media screen and (max-width: 1440px) {
   .container {
     max-width: 768px;
@@ -31,7 +30,6 @@
   }
 }
 
-/* mobile */
 @media screen and (max-width: 768px) {
   .container {
     max-width: 420px;

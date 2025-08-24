@@ -1,12 +1,53 @@
-# React + Vite
+# TravelTrucks-web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend part of the **TravelTrucks-web** web application, a service for camper rentals.  
+The app provides a convenient way to browse available campers, check their details, read reviews, and make bookings.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Key Features
 
-## Expanding the ESLint configuration
+- **Home Page** — a banner with the main call to action.
+- **Camper Catalog** — a list of available campers with filters (location, type, air conditioning, kitchen, etc.) and the ability to add items to favorites.
+- **Camper Details Page** — detailed information about the selected camper, photo gallery, user reviews, and a booking form.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Screenshots
+
+> _(Add your own screenshots here to demonstrate the app UI — for example, Home Page, Catalog, Camper Details, etc.)_
+
+## 🛠 Tech Stack
+
+- **React** + **TypeScript**
+- **Redux Toolkit** + **React Redux**
+- **React Router DOM**
+- **Axios**
+- **Formik** + **Yup**
+- **Tailwind CSS** / **SCSS**
+- **clsx**
+- **react-datepicker**
+- **modern-normalize**
+
+---
+
+## 🚀 Installation & Running
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+The app will be available at: http://localhost:5173
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+Feel free to open an issue or submit a pull request.
+
+👩‍💻 Author
+Hi 👋 My name is Tetiana Savchuk, and I am a Front-End Developer.
+I have experience working with HTML, CSS, SCSS, Tailwind, JavaScript, React, TypeScript, and Node.js.
+
+🔗 My LinkedIn Profile
+```

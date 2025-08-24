@@ -1,0 +1,119 @@
+.block {
+  width: 360px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--gray);
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.input {
+  height: 56px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background-color: var(--inputs);
+  border: none;
+  color: var(--main);
+}
+
+.inputLocation {
+  height: 56px;
+  padding: 18px 20px 18px 46px;
+  border-radius: 12px;
+  background-color: var(--inputs);
+  border: none;
+  color: var(--main);
+  width: 100%;
+  outline: none;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 18px;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  fill: var(--gray);
+}
+
+.activeIcon {
+  fill: var(--main);
+}
+
+.placeholder {
+  color: var(--gray);
+}
+
+.subtitle {
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  color: var(--text);
+}
+
+.vehicheBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.line {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.vehiche {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  row-gap: 8px;
+}
+
+.button {
+  padding: 16px;
+  width: 166px;
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  background-color: var(--button);
+  border-radius: 200px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+@media screen and (max-width: 1439.98px) {
+  .block {
+    max-width: 736px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .inputLocation {
+    width: 400px;
+  }
+}

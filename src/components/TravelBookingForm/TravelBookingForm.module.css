@@ -4,7 +4,7 @@
   padding: 44px;
   border-radius: 10px;
   border: 1px solid var(--gray-light);
-  background: var(--white);
+  background: var(--color-white);
   box-sizing: border-box;
 }
 
@@ -73,7 +73,7 @@
   border: none;
   border-radius: 200px;
   background: var(--button);
-  color: var(--white);
+  color: var(--color-white);
   line-height: 1.5;
   letter-spacing: -0.005em;
   display: flex;
